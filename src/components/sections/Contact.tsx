@@ -2,17 +2,23 @@ import { Mail, Phone, Clock } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { ContactForm } from "@/components/sections/ContactForm";
 
-export function ContactSection() {
+interface ContactSectionProps {
+  titleAs?: "h1" | "h2";
+}
+
+export function ContactSection({ titleAs = "h2" }: ContactSectionProps) {
+  const Heading = titleAs;
+  
   return (
     <section aria-labelledby="contact-heading" className="bg-white py-16 lg:py-24">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <h2
+          <Heading
             id="contact-heading"
             className="text-3xl font-bold tracking-tight text-brand-green sm:text-4xl"
           >
             Get In Touch
-          </h2>
+          </Heading>
           <p className="mt-4 text-lg leading-relaxed text-brand-green/80">
             Have a question or need a quote? Reach out directly or send us a
             message using the form.
