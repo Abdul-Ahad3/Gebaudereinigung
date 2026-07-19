@@ -127,13 +127,13 @@ export function Footer() {
               href="/impressum"
               className="text-sm text-white/50 transition-colors hover:text-white"
             >
-              Impressum
+              Imprint
             </Link>
             <Link
               href="/datenschutz"
               className="text-sm text-white/50 transition-colors hover:text-white"
             >
-              Datenschutz
+              Privacy
             </Link>
           </div>
         </div>

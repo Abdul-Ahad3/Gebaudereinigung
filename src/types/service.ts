@@ -5,4 +5,6 @@ export interface Service {
   icon: LucideIcon;
   title: string;
   description: string;
+  longDescription?: string;
+  benefits?: string[];
 }
