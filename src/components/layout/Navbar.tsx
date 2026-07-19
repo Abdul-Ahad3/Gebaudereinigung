@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Phone } from "lucide-react";
-import Container from "@/components/layout/Container";
+import { Container } from "@/components/layout/Container";
 import { MobileMenu } from "./MobileMenu";
 import { navLinks } from "@/data/navigation";
 
