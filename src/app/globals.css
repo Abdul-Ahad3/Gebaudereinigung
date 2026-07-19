@@ -5,3 +5,9 @@
   --brand-green-dark: #0B2A1F;
   --brand-gold: #C9A227;
 }
+
+@theme {
+  --color-brand-green: #123c2c;
+  --color-brand-green-dark: #0b2a1f;
+  --color-brand-gold: #c9a227;
+}
