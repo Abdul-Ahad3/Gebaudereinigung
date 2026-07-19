@@ -1,6 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { ServiceCard } from "@/components/shared/ServiceCard";
-import { services } from "@/data/service";
+import { services } from "@/data/services";
 
 export function FeaturedServices() {
   return (
