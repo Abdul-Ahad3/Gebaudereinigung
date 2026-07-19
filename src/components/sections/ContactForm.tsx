@@ -1,22 +1,37 @@
 "use client";
 
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactFormSchema, type ContactFormValues } from "@/lib/validations/contact";
 import { services } from "@/data/services";
+import { submitContactForm } from "@/lib/actions/contact";
 
 export function ContactForm() {
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
   });
 
-  function onSubmit(values: ContactFormValues) {
-    // Submission handling (e.g. Resend) is implemented in a future commit.
-    console.log("Contact form submitted:", values);
+  async function onSubmit(values: ContactFormValues) {
+    setStatus("idle");
+    const result = await submitContactForm(values);
+
+    if (result.success) {
+      setStatus("success");
+      setStatusMessage("Thanks — your message has been sent. We'll get back to you soon.");
+      reset();
+    } else {
+      setStatus("error");
+      setStatusMessage(result.error ?? "Something went wrong. Please try again.");
+    }
   }
 
   return (
@@ -119,12 +134,24 @@ export function ContactForm() {
         )}
       </div>
 
+      {status !== "idle" && (
+        <p
+          role="status"
+          aria-live="polite"
+          className={`text-sm font-medium ${
+            status === "success" ? "text-brand-green" : "text-red-600"
+          }`}
+        >
+          {statusMessage}
+        </p>
+      )}
+
       <button
         type="submit"
         disabled={isSubmitting}
         className="inline-flex w-full items-center justify-center rounded-md bg-brand-green px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-green-dark disabled:opacity-60 sm:w-auto"
       >
-        Send Message
+        {isSubmitting ? "Sending..." : "Send Message"}
       </button>
     </form>
   );
