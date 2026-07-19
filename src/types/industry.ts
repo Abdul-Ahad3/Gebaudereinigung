@@ -5,4 +5,6 @@ export interface Industry {
   icon: LucideIcon;
   name: string;
   description: string;
+  longDescription?: string;
+  highlights?: string[];
 }
