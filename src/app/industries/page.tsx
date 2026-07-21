@@ -3,6 +3,7 @@ import { Container } from "@/components/layout/Container";
 import { IndustryDetail } from "@/components/shared/IndustryDetail";
 import { industries } from "@/data/industries";
 import { Navbar } from "@/components/layout/Navbar";
+import { PageHero } from "@/components/shared/PageHero";
 
 export const metadata: Metadata = {
   title: "Industries We Serve | AS Gebäudereinigung",
@@ -13,20 +14,12 @@ export const metadata: Metadata = {
 export default function IndustriesPage() {
   return (
     <>
-        <Navbar />
-      <section className="bg-white py-16 lg:py-24">
-        <Container>
-          <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-brand-green sm:text-5xl">
-              Industries We Serve
-            </h1>
-            <p className="mt-4 text-lg leading-relaxed text-brand-green/80">
-              We tailor our cleaning approach to the specific needs of each
-              industry we work with.
-            </p>
-          </div>
-        </Container>
-      </section>
+      <Navbar />
+      <PageHero
+        title="Industries We Serve"
+        subtitle="We tailor our cleaning approach to the specific needs of each industry we work with."
+        backgroundImage="/images/hero/freiburg3.jpeg"
+      />
 
       <section className="bg-white pb-16 lg:pb-24">
         <Container>

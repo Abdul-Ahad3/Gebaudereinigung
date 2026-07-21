@@ -10,7 +10,7 @@ export function Hero() {
     >
       <HeroBackground images={heroImages} />
 
-      <div className="mx-4 max-w-xl rounded-lg bg-white/90 p-8 backdrop-blur-sm sm:mx-8 lg:mx-16 lg:p-10">
+      <div className="mx-4 max-w-xl rounded-lg bg-white/50 p-8 backdrop-blur-sm sm:mx-8 lg:mx-16 lg:p-10">
         <h1
           id="hero-heading"
           className="text-4xl font-bold leading-tight tracking-tight text-brand-green sm:text-5xl lg:text-6xl"

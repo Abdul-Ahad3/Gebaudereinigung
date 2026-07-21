@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
 import { ServiceDetail } from "@/components/shared/ServiceDetail";
 import { services } from "@/data/services";
-import { Navbar }from "@/components/layout/Navbar";
+import { Navbar } from "@/components/layout/Navbar";
+import { PageHero } from "@/components/shared/PageHero";
 
 export const metadata: Metadata = {
   title: "Our Services | AS Gebäudereinigung",
@@ -14,19 +15,11 @@ export default function ServicesPage() {
   return (
     <>
       <Navbar />
-      <section className="bg-white py-16 lg:py-24">
-        <Container>
-          <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-brand-green sm:text-5xl">
-              Our Services
-            </h1>
-            <p className="mt-4 text-lg leading-relaxed text-brand-green/80">
-              Thorough, professional cleaning for every space — from everyday
-              upkeep to specialized, one-off work.
-            </p>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        title="Our Services"
+        subtitle="Thorough, professional cleaning for every space — from everyday upkeep to specialized, one-off work."
+        backgroundImage="/images/hero/freiburg.jpeg"
+      />
 
       <section className="bg-white pb-16 lg:pb-24">
         <Container>
