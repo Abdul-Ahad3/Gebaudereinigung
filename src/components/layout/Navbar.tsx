@@ -3,13 +3,13 @@ import { Phone } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { MobileMenu } from "./MobileMenu";
 import { navLinks } from "@/data/navigation";
+import { content } from "@/data/content";
 
 export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-brand-green/10 bg-white/95 backdrop-blur">
       <Container>
         <div className="flex h-16 items-center justify-between">
-          {/* Logo placeholder — replace with next/image once brand assets are ready */}
           <Link
             href="/"
             aria-label="AS Gebäudereinigung — Home"
@@ -26,7 +26,7 @@ export function Navbar() {
                     href={link.href}
                     className="text-sm font-medium text-brand-green transition-colors hover:text-brand-gold"
                   >
-                    {link.label}
+                    {content.nav[link.id]}
                   </Link>
                 </li>
               ))}
@@ -34,11 +34,11 @@ export function Navbar() {
           </nav>
 
           <a
-            href="tel:+1234567890"
+            href="tel:"
             className="hidden items-center gap-2 rounded-md bg-brand-green px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-green-dark md:inline-flex"
           >
             <Phone className="h-4 w-4" aria-hidden="true" />
-            Call Us
+            {content.nav.callToAction}
           </a>
 
           <MobileMenu links={navLinks} />

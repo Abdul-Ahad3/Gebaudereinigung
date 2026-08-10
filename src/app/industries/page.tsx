@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Container } from "@/components/layout/Container";
+import {Container} from "@/components/layout/Container";
+import { PageHero } from "@/components/shared/PageHero";
 import { IndustryDetail } from "@/components/shared/IndustryDetail";
 import { industries } from "@/data/industries";
-import { Navbar } from "@/components/layout/Navbar";
-import { PageHero } from "@/components/shared/PageHero";
+import { content } from "@/data/content";
 
 export const metadata: Metadata = {
   title: "Industries We Serve | AS Gebäudereinigung",
@@ -14,25 +14,28 @@ export const metadata: Metadata = {
 export default function IndustriesPage() {
   return (
     <>
-      <Navbar />
       <PageHero
-        title="Industries We Serve"
-        subtitle="We tailor our cleaning approach to the specific needs of each industry we work with."
-        backgroundImage="/images/hero/freiburg3.jpeg"
+        title={content.industriesPage.heading}
+        subtitle={content.industriesPage.subtitle}
+        backgroundImage="/images/pages/industries.jpg"
       />
 
       <section className="bg-white pb-16 lg:pb-24">
         <Container>
-          {industries.map((industry, index) => (
-            <IndustryDetail
-              key={industry.slug}
-              icon={industry.icon}
-              name={industry.name}
-              description={industry.longDescription ?? industry.description}
-              highlights={industry.highlights ?? []}
-              reversed={index % 2 === 1}
-            />
-          ))}
+          {industries.map((industry, index) => {
+            const text = content.industries[industry.slug];
+            return (
+              <IndustryDetail
+                key={industry.slug}
+                icon={industry.icon}
+                name={text.name}
+                description={text.longDescription}
+                highlights={text.highlights}
+                ctaLabel={content.cta.requestQuote}
+                reversed={index % 2 === 1}
+              />
+            );
+          })}
         </Container>
       </section>
     </>

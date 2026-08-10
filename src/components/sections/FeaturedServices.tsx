@@ -1,6 +1,7 @@
-import { Container } from "@/components/layout/Container";
+import {Container} from "@/components/layout/Container";
 import { ServiceCard } from "@/components/shared/ServiceCard";
 import { services } from "@/data/services";
+import { content } from "@/data/content";
 
 export function FeaturedServices() {
   return (
@@ -14,24 +15,26 @@ export function FeaturedServices() {
             id="services-heading"
             className="text-3xl font-bold tracking-tight text-brand-green sm:text-4xl"
           >
-            Our Services
+            {content.homeSections.featuredServices.heading}
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-brand-green/80">
-            From everyday upkeep to specialized cleaning, we offer a full
-            range of services for homes and businesses.
+            {content.homeSections.featuredServices.subtitle}
           </p>
         </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((service) => (
-            <ServiceCard
-              key={service.slug}
-              icon={service.icon}
-              title={service.title}
-              description={service.description}
-              href="/services"
-            />
-          ))}
+          {services.map((service) => {
+            const text = content.services[service.slug];
+            return (
+              <ServiceCard
+                key={service.slug}
+                icon={service.icon}
+                title={text.title}
+                description={text.description}
+                href="/services"
+              />
+            );
+          })}
         </div>
       </Container>
     </section>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { ContactSection } from "@/components/sections/Contact";
-import { Navbar } from "@/components/layout/Navbar";
 import { PageHero } from "@/components/shared/PageHero";
+import { ContactSection } from "@/components/sections/Contact";
+import { content } from "@/data/content";
 
 export const metadata: Metadata = {
   title: "Contact Us | AS Gebäudereinigung",
@@ -12,11 +12,10 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <Navbar />
       <PageHero
-        title="Get In Touch"
-        subtitle="Have a question or need a quote? Reach out directly or send us a message using the form."
-        backgroundImage="/images/hero/freiburg2.jpeg"
+        title={content.contact.heading}
+        subtitle={content.contact.subtitle}
+        backgroundImage="/images/pages/contact.jpg"
       />
       <ContactSection />
     </>

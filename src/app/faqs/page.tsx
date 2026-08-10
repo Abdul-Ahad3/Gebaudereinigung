@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Container } from "@/components/layout/Container";
-import { FAQItem } from "@/components/shared/FAQItem";
-import { faqs } from "@/data/faqs";
-import { Navbar } from "@/components/layout/Navbar";
+import {Container} from "@/components/layout/Container";
 import { PageHero } from "@/components/shared/PageHero";
+import { FAQItem } from "@/components/shared/FAQItem";
+import { faqIds } from "@/data/faqs";
+import { content } from "@/data/content";
 
 export const metadata: Metadata = {
   title: "FAQs | AS Gebäudereinigung",
@@ -15,30 +15,28 @@ export const metadata: Metadata = {
 export default function FAQsPage() {
   return (
     <>
-      <Navbar />
       <PageHero
-        title="Frequently Asked Questions"
-        subtitle="Answers to the questions we hear most often. Can't find what you're looking for? Reach out directly."
-        backgroundImage="/images/hero/freiburg3.jpeg"
+        title={content.faqsPage.heading}
+        subtitle={content.faqsPage.subtitle}
+        backgroundImage="/images/pages/faqs.jpg"
       />
 
       <section className="bg-white py-16 lg:py-24">
         <Container>
           <div className="mx-auto max-w-3xl space-y-4">
-            {faqs.map((faq) => (
-              <FAQItem key={faq.id} question={faq.question} answer={faq.answer} />
-            ))}
+            {faqIds.map((id) => {
+              const faq = content.faqs[id];
+              return <FAQItem key={id} question={faq.question} answer={faq.answer} />;
+            })}
           </div>
 
           <div className="mx-auto mt-12 max-w-3xl rounded-lg bg-brand-green px-8 py-10 text-center">
-            <p className="text-lg font-medium text-white">
-              For more questions, contact us
-            </p>
+            <p className="text-lg font-medium text-white">{content.faqsPage.ctaHeading}</p>
             <Link
               href="/contact"
               className="mt-4 inline-flex items-center justify-center rounded-md bg-brand-gold px-6 py-3 text-sm font-medium text-brand-green transition-colors hover:bg-brand-gold/90"
             >
-              Contact Us
+              {content.faqsPage.ctaButton}
             </Link>
           </div>
         </Container>

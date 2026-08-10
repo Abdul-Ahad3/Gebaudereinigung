@@ -1,7 +1,8 @@
 import { Star } from "lucide-react";
-import { Container } from "@/components/layout/Container";
+import {Container} from "@/components/layout/Container";
 import { TestimonialCard } from "@/components/shared/TestimonialCard";
 import { testimonials } from "@/data/testimonials";
+import { content } from "@/data/content";
 
 export function Testimonials() {
   return (
@@ -15,10 +16,10 @@ export function Testimonials() {
             id="testimonials-heading"
             className="text-3xl font-bold tracking-tight text-brand-green sm:text-4xl"
           >
-            What Our Customers Say
+            {content.homeSections.testimonials.heading}
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-brand-green/80">
-            Real feedback from the people and businesses we work with.
+            {content.homeSections.testimonials.subtitle}
           </p>
         </div>
 
@@ -30,11 +31,10 @@ export function Testimonials() {
               ))}
             </div>
             <p className="mt-4 text-base font-semibold text-brand-green">
-              Reviews Coming Soon
+              {content.homeSections.testimonials.emptyStateTitle}
             </p>
             <p className="mt-2 text-sm leading-relaxed text-brand-green/70">
-              We&apos;re a new company building our reputation one job at a
-              time. Customer reviews will appear here as they come in.
+              {content.homeSections.testimonials.emptyStateMessage}
             </p>
           </div>
         ) : (

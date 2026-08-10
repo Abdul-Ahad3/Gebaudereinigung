@@ -1,20 +1,18 @@
 import type { Metadata } from "next";
 import { Briefcase } from "lucide-react";
-import { Container } from "@/components/layout/Container";
-import { Navbar } from "@/components/layout/Navbar";
+import {Container} from "@/components/layout/Container";
 import { PageHero } from "@/components/shared/PageHero";
+import { content } from "@/data/content";
 
 export const metadata: Metadata = {
   title: "Jobs | AS Gebäudereinigung",
-  description:
-    "Current job openings at AS Gebäudereinigung. Send us your CV for future opportunities.",
+  description: "Current job openings at AS Gebäudereinigung. Send us your CV for future opportunities.",
 };
 
 export default function JobsPage() {
   return (
     <>
-      <Navbar />
-      <PageHero title="Careers" backgroundImage="/images/hero/freiburg.jpeg" />
+      <PageHero title={content.jobs.heading} backgroundImage="/images/pages/jobs.jpg" />
 
       <section className="bg-white py-16 lg:py-24">
         <Container>
@@ -23,17 +21,16 @@ export default function JobsPage() {
               <Briefcase className="h-7 w-7 text-brand-gold" aria-hidden="true" />
             </span>
             <p className="mt-4 text-base font-semibold text-brand-green">
-              We Are Not Currently Hiring
+              {content.jobs.notHiringTitle}
             </p>
             <p className="mt-2 text-sm leading-relaxed text-brand-green/70">
-              Feel free to send your CV for future opportunities at{" "}
+              {content.jobs.notHiringMessage}{" "}
               <a
                 href="mailto:asreinigung.freiburg@gmail.com"
                 className="font-medium text-brand-green underline underline-offset-2 transition-colors hover:text-brand-gold"
               >
                 asreinigung.freiburg@gmail.com
               </a>
-              .
             </p>
           </div>
         </Container>

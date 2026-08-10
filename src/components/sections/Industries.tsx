@@ -1,6 +1,7 @@
-import { Container } from "@/components/layout/Container";
+import {Container} from "@/components/layout/Container";
 import { IndustryCard } from "@/components/shared/IndustryCard";
 import { industries } from "@/data/industries";
+import { content } from "@/data/content";
 
 export function Industries() {
   return (
@@ -11,23 +12,25 @@ export function Industries() {
             id="industries-heading"
             className="text-3xl font-bold tracking-tight text-brand-green sm:text-4xl"
           >
-            Industries We Serve
+            {content.homeSections.industries.heading}
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-brand-green/80">
-            We support a wide range of businesses and properties with
-            cleaning services tailored to their needs.
+            {content.homeSections.industries.subtitle}
           </p>
         </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {industries.map((industry) => (
-            <IndustryCard
-              key={industry.slug}
-              icon={industry.icon}
-              name={industry.name}
-              description={industry.description}
-            />
-          ))}
+          {industries.map((industry) => {
+            const text = content.industries[industry.slug];
+            return (
+              <IndustryCard
+                key={industry.slug}
+                icon={industry.icon}
+                name={text.name}
+                description={text.description}
+              />
+            );
+          })}
         </div>
       </Container>
     </section>

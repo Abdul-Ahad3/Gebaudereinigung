@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { Mail, Phone, Clock } from "lucide-react";
-import { Container } from "@/components/layout/Container";
+import {Container} from "@/components/layout/Container";
 import { navLinks } from "@/data/navigation";
 import { services } from "@/data/services";
+import { content } from "@/data/content";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -11,7 +12,6 @@ export function Footer() {
     <footer className="bg-brand-green">
       <Container>
         <div className="grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-          {/* Logo + description */}
           <div>
             <Link
               href="/"
@@ -21,15 +21,13 @@ export function Footer() {
               AS <span className="text-brand-gold">Gebäudereinigung</span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-white/70">
-              Reliable, thorough, and professional cleaning services for
-              private and commercial customers in Freiburg.
+              {content.footer.description}
             </p>
           </div>
 
-          {/* Quick navigation */}
           <nav aria-label="Footer navigation">
             <h3 className="text-sm font-semibold uppercase tracking-wide text-brand-gold">
-              Quick Links
+              {content.footer.quickLinksHeading}
             </h3>
             <ul className="mt-4 space-y-3">
               {navLinks.map((link) => (
@@ -38,17 +36,16 @@ export function Footer() {
                     href={link.href}
                     className="text-sm text-white/70 transition-colors hover:text-white"
                   >
-                    {link.label}
+                    {content.nav[link.id]}
                   </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
-          {/* Services */}
           <nav aria-label="Services">
             <h3 className="text-sm font-semibold uppercase tracking-wide text-brand-gold">
-              Services
+              {content.footer.servicesHeading}
             </h3>
             <ul className="mt-4 space-y-3">
               {services.map((service) => (
@@ -57,17 +54,16 @@ export function Footer() {
                     href="/services"
                     className="text-sm text-white/70 transition-colors hover:text-white"
                   >
-                    {service.title}
+                    {content.services[service.slug].title}
                   </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
-          {/* Contact + hours */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wide text-brand-gold">
-              Contact
+              {content.footer.contactHeading}
             </h3>
             <address className="mt-4 space-y-4 not-italic">
               <div className="flex items-center gap-3">
@@ -100,15 +96,15 @@ export function Footer() {
                 </span>
                 <dl className="space-y-0.5 text-sm text-white/70">
                   <div className="flex justify-between gap-4">
-                    <dt>Mon – Fri</dt>
+                    <dt>{content.contact.weekdaysLabel}</dt>
                     <dd>08:00 – 17:00</dd>
                   </div>
                   <div className="flex justify-between gap-4">
-                    <dt>Saturday</dt>
+                    <dt>{content.contact.saturdayLabel}</dt>
                     <dd>09:00 – 17:00</dd>
                   </div>
                   <div className="flex justify-between gap-4">
-                    <dt>Sunday</dt>
+                    <dt>{content.contact.sundayLabel}</dt>
                     <dd>09:00 – 17:00</dd>
                   </div>
                 </dl>
@@ -117,23 +113,22 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="flex flex-col items-center gap-4 border-t border-white/10 py-6 sm:flex-row sm:justify-between">
           <p className="text-sm text-white/50">
-            © {year} AS Gebäudereinigung. All rights reserved.
+            © {year} AS Gebäudereinigung. {content.footer.rightsReserved}
           </p>
           <div className="flex gap-6">
             <Link
               href="/impressum"
               className="text-sm text-white/50 transition-colors hover:text-white"
             >
-              Imprint
+              {content.footer.impressumLabel}
             </Link>
             <Link
               href="/datenschutz"
               className="text-sm text-white/50 transition-colors hover:text-white"
             >
-              Privacy
+              {content.footer.datenschutzLabel}
             </Link>
           </div>
         </div>

@@ -6,10 +6,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { contactFormSchema, type ContactFormValues } from "@/lib/validations/contact";
 import { services } from "@/data/services";
 import { submitContactForm } from "@/lib/actions/contact";
+import { content } from "@/data/content";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [statusMessage, setStatusMessage] = useState("");
+  const t = content.contact.form;
 
   const {
     register,
@@ -26,11 +28,11 @@ export function ContactForm() {
 
     if (result.success) {
       setStatus("success");
-      setStatusMessage("Thanks — your message has been sent. We'll get back to you soon.");
+      setStatusMessage(t.successMessage);
       reset();
     } else {
       setStatus("error");
-      setStatusMessage(result.error ?? "Something went wrong. Please try again.");
+      setStatusMessage(result.error ?? t.errorMessage);
     }
   }
 
@@ -38,7 +40,7 @@ export function ContactForm() {
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-brand-green">
-          Name
+          {t.nameLabel}
         </label>
         <input
           id="name"
@@ -57,7 +59,7 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="email" className="block text-sm font-medium text-brand-green">
-          Email
+          {t.emailLabel}
         </label>
         <input
           id="email"
@@ -76,7 +78,7 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="phone" className="block text-sm font-medium text-brand-green">
-          Phone <span className="font-normal text-brand-green/50">(optional)</span>
+          {t.phoneLabel} <span className="font-normal text-brand-green/50">{t.phoneOptional}</span>
         </label>
         <input
           id="phone"
@@ -88,7 +90,7 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="service" className="block text-sm font-medium text-brand-green">
-          Service
+          {t.serviceLabel}
         </label>
         <select
           id="service"
@@ -99,14 +101,14 @@ export function ContactForm() {
           className="mt-1 w-full rounded-md border border-brand-green/20 bg-white px-4 py-2 text-sm text-brand-green focus:border-brand-green focus:outline-none focus:ring-1 focus:ring-brand-green"
         >
           <option value="" disabled>
-            Select a service
+            {t.serviceSelectPlaceholder}
           </option>
           {services.map((service) => (
             <option key={service.slug} value={service.slug}>
-              {service.title}
+              {content.services[service.slug].title}
             </option>
           ))}
-          <option value="other">Other</option>
+          <option value="other">{t.otherOption}</option>
         </select>
         {errors.service && (
           <p id="service-error" role="alert" className="mt-1 text-sm text-red-600">
@@ -117,7 +119,7 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-brand-green">
-          Message
+          {t.messageLabel}
         </label>
         <textarea
           id="message"
@@ -151,7 +153,7 @@ export function ContactForm() {
         disabled={isSubmitting}
         className="inline-flex w-full items-center justify-center rounded-md bg-brand-green px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-green-dark disabled:opacity-60 sm:w-auto"
       >
-        {isSubmitting ? "Sending..." : "Send Message"}
+        {isSubmitting ? t.submittingLabel : t.submitLabel}
       </button>
     </form>
   );
