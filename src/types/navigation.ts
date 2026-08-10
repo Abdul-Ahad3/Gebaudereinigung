@@ -1,4 +1,8 @@
+import type { NavContent } from "./content";
+
+export type NavId = keyof Omit<NavContent, "callToAction">;
+
 export interface NavLink {
-  label: string;
+  id: NavId;
   href: string;
 }

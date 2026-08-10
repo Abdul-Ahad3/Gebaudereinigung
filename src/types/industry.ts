@@ -3,8 +3,4 @@ import type { LucideIcon } from "lucide-react";
 export interface Industry {
   slug: string;
   icon: LucideIcon;
-  name: string;
-  description: string;
-  longDescription?: string;
-  highlights?: string[];
 }
