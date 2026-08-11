@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Phone } from "lucide-react";
-import { Container } from "@/components/layout/Container";
+import {Container} from "@/components/layout/Container";
 import { MobileMenu } from "./MobileMenu";
+import { NavLinks } from "./NavLinks";
 import { navLinks } from "@/data/navigation";
 import { content } from "@/data/content";
 
@@ -18,20 +19,7 @@ export function Navbar() {
             AS <span className="text-brand-gold">Gebäudereinigung</span>
           </Link>
 
-          <nav aria-label="Main navigation" className="hidden md:block">
-            <ul className="flex items-center gap-8">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm font-medium text-brand-green transition-colors hover:text-brand-gold"
-                  >
-                    {content.nav[link.id]}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <NavLinks links={navLinks} />
 
           <a
             href="tel:"
