@@ -1,21 +1,11 @@
-import {
-  CalendarClock,
-  Building2,
-  ArrowUpDown,
-  AppWindow,
-  KeyRound,
-  Wand2,
-  Home,
-} from "lucide-react";
 import type { Service } from "@/types/service";
 
-
 export const services: Service[] = [
-  { slug: "maintenance-cleaning", icon: CalendarClock },
-  { slug: "office-cleaning", icon: Building2 },
-  { slug: "stairwell-cleaning", icon: ArrowUpDown },
-  { slug: "window-cleaning", icon: AppWindow },
-  { slug: "final-cleaning", icon: KeyRound },
-  { slug: "special-cleaning", icon: Wand2 },
-  { slug: "household-cleaning", icon: Home },
+  { slug: "maintenance-cleaning", image: "/images/services/maintenance.jpeg" },
+  { slug: "office-cleaning", image: "/images/services/office.jpeg" },
+  { slug: "stairwell-cleaning", image: "/images/services/stairwell.jpeg" },
+  { slug: "window-cleaning", image: "/images/services/window.jpeg" },
+  { slug: "final-cleaning", image: "/images/services/cleaning.jpeg" },
+  { slug: "special-cleaning", image: "/images/services/cleaning2.jpeg" },
+  { slug: "household-cleaning", image: "/images/services/household.jpeg" },
 ];

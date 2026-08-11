@@ -30,7 +30,7 @@ export default function ServicesPage() {
             return (
               <ServiceDetail
                 key={service.slug}
-                icon={service.icon}
+                image={service.image}
                 title={text.title}
                 description={text.longDescription}
                 benefits={text.benefits}

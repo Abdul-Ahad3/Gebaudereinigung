@@ -1,28 +1,43 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, type LucideIcon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface ServiceCardProps {
-  icon: LucideIcon;
+  image: string;
   title: string;
   description: string;
   href: string;
 }
 
-export function ServiceCard({ icon: Icon, title, description, href }: ServiceCardProps) {
+export function ServiceCard({ image, title, description, href }: ServiceCardProps) {
   return (
-    <article className="flex flex-col rounded-lg border border-brand-green/10 bg-white p-6 transition-shadow hover:shadow-md">
-      <Icon className="h-8 w-8 text-brand-gold" aria-hidden="true" />
-      <h3 className="mt-4 text-lg font-semibold text-brand-green">{title}</h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-brand-green/70">
-        {description}
-      </p>
-      <Link
-        href={href}
-        className="mt-4 inline-flex items-center text-sm font-medium text-brand-green transition-colors hover:text-brand-gold"
-      >
-        Learn More
-        <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
-      </Link>
+    <article className="flex flex-col overflow-hidden rounded-lg border border-brand-green/10 bg-white transition-shadow hover:shadow-md">
+      <div className="relative h-40 w-full">
+        <Image
+          src={image}
+          alt=""
+          fill
+          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-green/85 via-brand-green/10 to-transparent" />
+        <h3 className="absolute inset-x-4 bottom-3 text-lg font-semibold text-white">
+          {title}
+        </h3>
+      </div>
+
+      <div className="flex flex-1 flex-col p-6">
+        <p className="flex-1 text-sm leading-relaxed text-brand-green/70">
+          {description}
+        </p>
+        <Link
+          href={href}
+          className="mt-4 inline-flex items-center text-sm font-medium text-brand-green transition-colors hover:text-brand-gold"
+        >
+          Learn More
+          <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
+        </Link>
+      </div>
     </article>
   );
 }

@@ -28,7 +28,7 @@ export function FeaturedServices() {
             return (
               <ServiceCard
                 key={service.slug}
-                icon={service.icon}
+                image={service.image}
                 title={text.title}
                 description={text.description}
                 href="/services"
