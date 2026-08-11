@@ -7,14 +7,14 @@ export function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative isolate flex min-h-[600px] items-center py-16 lg:min-h-[700px] lg:py-24"
+      className="relative isolate min-h-[600px] py-16 lg:min-h-[900px] lg:py-24"
     >
       <HeroBackground images={heroImages} />
 
-      <div className="mx-4 max-w-xl rounded-lg bg-white/60 p-8 backdrop-blur-sm sm:mx-8 lg:mx-16 lg:p-10">
+      <div className="absolute inset-x-4 bottom-2 rounded-lg bg-white/60 p-6 backdrop-blur-sm sm:inset-x-auto sm:bottom-5 sm:right-8 sm:max-w-xl sm:p-8 lg:bottom-10 lg:right-16 lg:p-10">
         <h1
           id="hero-heading"
-          className="text-4xl font-bold leading-tight tracking-tight text-brand-green sm:text-5xl lg:text-6xl"
+          className="text-4xl font-bold leading-tight tracking-tight text-brand-green sm:text-5xl lg:text-5xl"
         >
           {content.hero.title}
         </h1>

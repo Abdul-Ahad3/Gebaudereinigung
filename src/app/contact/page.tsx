@@ -18,7 +18,7 @@ export default function ContactPage() {
       <PageHero
         title={content.contact.heading}
         subtitle={content.contact.subtitle}
-        backgroundImage="/images/pages/contact.jpg"
+        backgroundImage="/images/pages/freiburg3.jpeg"
       />
       <ContactSection />
       <Footer />
