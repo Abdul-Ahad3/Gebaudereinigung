@@ -1,3 +1,5 @@
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 import type { Metadata } from "next";
 import { Briefcase } from "lucide-react";
 import {Container} from "@/components/layout/Container";
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
 export default function JobsPage() {
   return (
     <>
+      <Navbar />
       <PageHero title={content.jobs.heading} backgroundImage="/images/pages/jobs.jpg" />
 
       <section className="bg-white py-16 lg:py-24">
@@ -35,6 +38,7 @@ export default function JobsPage() {
           </div>
         </Container>
       </section>
+      <Footer />
     </>
   );
 }

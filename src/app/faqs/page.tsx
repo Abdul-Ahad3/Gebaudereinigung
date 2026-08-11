@@ -1,3 +1,5 @@
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {Container} from "@/components/layout/Container";
@@ -15,6 +17,7 @@ export const metadata: Metadata = {
 export default function FAQsPage() {
   return (
     <>
+      <Navbar />
       <PageHero
         title={content.faqsPage.heading}
         subtitle={content.faqsPage.subtitle}
@@ -41,6 +44,7 @@ export default function FAQsPage() {
           </div>
         </Container>
       </section>
+      <Footer />
     </>
   );
 }

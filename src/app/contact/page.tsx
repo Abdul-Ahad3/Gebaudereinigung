@@ -1,3 +1,5 @@
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 import type { Metadata } from "next";
 import { PageHero } from "@/components/shared/PageHero";
 import { ContactSection } from "@/components/sections/Contact";
@@ -12,12 +14,14 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
+      <Navbar />
       <PageHero
         title={content.contact.heading}
         subtitle={content.contact.subtitle}
         backgroundImage="/images/pages/contact.jpg"
       />
       <ContactSection />
+      <Footer />
     </>
   );
 }

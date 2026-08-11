@@ -6,7 +6,7 @@ type Language = "en" | "de";
 
 // ── Single language switch for the whole site ──
 // Change this one value to "de" to switch all content to German.
-const currentLanguage: Language = "de";
+const currentLanguage: Language = "en";
 
 const contentMap: Record<Language, SiteContent> = {
   en: contentEn,
