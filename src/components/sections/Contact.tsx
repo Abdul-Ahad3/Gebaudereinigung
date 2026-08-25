@@ -53,7 +53,7 @@ export function ContactSection({ titleAs = "h2" }: ContactSectionProps) {
                     href="tel:+4917620003395"
                     className="text-sm text-brand-green/80 transition-colors hover:text-brand-gold"
                   >
-                    0176 20003395
+                    +49 176 20003395
                   </a>
                 </div>
               </li>

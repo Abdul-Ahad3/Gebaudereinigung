@@ -3,9 +3,11 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import type { NavLink } from "@/types/navigation";
 import { content } from "@/data/content";
+import { WhatsAppIcon } from "@/components/shared/WhatsApp"
+import { whatsappLink } from "@/lib/whatsapp";
 
 interface MobileMenuProps {
   links: NavLink[];
@@ -45,7 +47,7 @@ export function MobileMenu({ links }: MobileMenuProps) {
         className="relative z-[60] flex h-10 w-10 items-center justify-center text-brand-green"
       >
         {isOpen ? (
-          <X className="h-6 w-6" aria-hidden="true" />
+          <X className="h-6 w-6 text-black" aria-hidden="true" />
         ) : (
           <Menu className="h-6 w-6" aria-hidden="true" />
         )}
@@ -71,11 +73,13 @@ export function MobileMenu({ links }: MobileMenuProps) {
               ))}
 
               <a
-                href="tel:"
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-6 inline-flex items-center justify-center gap-2 rounded-md bg-brand-green px-5 py-3 text-white"
               >
-                <Phone className="h-4 w-4" aria-hidden="true" />
-                {content.nav.callToAction}
+                <WhatsAppIcon className="h-4 w-4" />
+                Contact us on WhatsApp
               </a>
             </nav>
           </div>,

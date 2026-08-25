@@ -86,7 +86,7 @@ export function Footer() {
                   href="tel:+4917620003395"
                   className="text-sm text-white/70 transition-colors hover:text-white"
                 >
-                  0176 20003395
+                  +49 176 20003395
                 </a>
               </div>
 

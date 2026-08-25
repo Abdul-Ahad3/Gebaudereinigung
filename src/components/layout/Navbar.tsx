@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { Phone } from "lucide-react";
 import {Container} from "@/components/layout/Container";
 import { MobileMenu } from "./MobileMenu";
 import { NavLinks } from "./NavLinks";
 import { navLinks } from "@/data/navigation";
-import { content } from "@/data/content";
+import { WhatsAppIcon } from "@/components/shared/WhatsApp"
+import { whatsappLink } from "@/lib/whatsapp";
 
 export function Navbar() {
   return (
@@ -21,12 +21,15 @@ export function Navbar() {
 
           <NavLinks links={navLinks} />
 
+          
           <a
-            href="tel:"
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden items-center gap-2 rounded-md bg-brand-green px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-green-dark md:inline-flex"
           >
-            <Phone className="h-4 w-4" aria-hidden="true" />
-            {content.nav.callToAction}
+            <WhatsAppIcon className="h-4 w-4" />
+            Contact us on WhatsApp
           </a>
 
           <MobileMenu links={navLinks} />
