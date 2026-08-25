@@ -9,6 +9,8 @@ export const contentDe: SiteContent = {
     faqs: "Häufige Fragen",
     contact: "Kontakt",
     callToAction: "Rufen Sie uns an",
+    whatsappShort: "WhatsApp",
+    whatsappFull: "Kontaktieren Sie uns über WhatsApp",
   },
 
   hero: {

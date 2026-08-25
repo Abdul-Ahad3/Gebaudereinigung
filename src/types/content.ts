@@ -6,6 +6,8 @@ export interface NavContent {
   faqs: string;
   contact: string;
   callToAction: string;
+  whatsappShort: string;
+  whatsappFull: string;
 }
 
 export interface HeroContent {
