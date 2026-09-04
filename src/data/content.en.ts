@@ -355,7 +355,7 @@ export const contentEn: SiteContent = {
       messageLabel: "Message",
       submitLabel: "Send Message",
       submittingLabel: "Sending...",
-      successMessage: "Thanks — your message has been sent. We'll get back to you soon.",
+      successMessage: "Thanks! Your message has been sent. We'll get back to you soon.",
       errorMessage: "Something went wrong. Please try again.",
     },
   },

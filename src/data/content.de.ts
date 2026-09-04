@@ -355,7 +355,7 @@ export const contentDe: SiteContent = {
       messageLabel: "Nachricht",
       submitLabel: "Nachricht senden",
       submittingLabel: "Wird gesendet...",
-      successMessage: "Vielen Dank – Ihre Nachricht wurde gesendet. Wir melden uns schnellstmöglich bei Ihnen.",
+      successMessage: "Vielen Dank! Ihre Nachricht wurde gesendet. Wir melden uns schnellstmöglich bei Ihnen.",
       errorMessage: "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
     },
   },

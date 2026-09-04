@@ -21,8 +21,8 @@ export async function submitContactForm(values: ContactFormValues): Promise<Acti
   const { name, email, phone, service, message } = parsed.data;
 
   const { error } = await resend.emails.send({
-    from: "onboarding@resend.dev",
-    to: process.env.CONTACT_EMAIL_TO ?? "mabdulahad3746@gmail.com",
+    from: "AS Gebäudereinigung Website <website@asreinigung-freiburg.de>",
+    to: process.env.CONTACT_EMAIL_TO ?? "kontakt@asreinigung-freiburg.de",
     replyTo: email,
     subject: `New Enquiry from ${name}`,
     react: ContactEmail({ name, email, phone, service, message }),
