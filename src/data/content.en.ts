@@ -14,11 +14,8 @@ export const contentEn: SiteContent = {
   },
 
   hero: {
-    title: "Reliable Cleaning You Can Trust",
-    subtitle:
-      "From offices to stairwells to move-out cleans, AS Gebäudereinigung delivers thorough, professional cleaning for homes and businesses in Freiburg — done right, every time.",
+    tagline: "Reliable Cleaning You Can Trust – AS Gebäudereinigung Freiburg",
     primaryCta: "Get a Free Quote",
-    secondaryCta: "Our Services",
   },
 
   about: {

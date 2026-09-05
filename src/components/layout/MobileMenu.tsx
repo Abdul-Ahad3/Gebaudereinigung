@@ -6,8 +6,6 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import type { NavLink } from "@/types/navigation";
 import { content } from "@/data/content";
-import { WhatsAppIcon } from "@/components/shared/WhatsApp";
-import { whatsappLink } from "@/lib/whatsapp";
 
 interface MobileMenuProps {
   links: NavLink[];
@@ -71,7 +69,7 @@ export function MobileMenu({ links }: MobileMenuProps) {
 
             <nav
               aria-label="Mobile navigation"
-              className="flex h-full flex-col gap-1 px-6 pb-8 pt-24"
+              className="flex h-full flex-col gap-1 px-6 pb-8 pt-28"
             >
               {links.map((link) => (
                 <Link
@@ -83,16 +81,6 @@ export function MobileMenu({ links }: MobileMenuProps) {
                   {content.nav[link.id]}
                 </Link>
               ))}
-
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center justify-center gap-2 rounded-md bg-brand-green px-5 py-3 text-white"
-              >
-                <WhatsAppIcon className="h-4 w-4" />
-                {content.nav.whatsappFull}
-              </a>
             </nav>
           </div>,
           document.body

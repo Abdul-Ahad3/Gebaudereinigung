@@ -1,3 +1,4 @@
+// src/components/sections/HeroBackground.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -6,9 +7,14 @@ import Image from "next/image";
 interface HeroBackgroundProps {
   images: string[];
   intervalMs?: number;
+  objectPosition?: string;
 }
 
-export function HeroBackground({ images, intervalMs = 7000 }: HeroBackgroundProps) {
+export function HeroBackground({
+  images,
+  intervalMs = 7000,
+  objectPosition = "center",
+}: HeroBackgroundProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -26,22 +32,29 @@ export function HeroBackground({ images, intervalMs = 7000 }: HeroBackgroundProp
   }, [images.length, intervalMs]);
 
   return (
-    <div className="absolute inset-0 -z-10 overflow-hidden">
-      {images.map((src, index) => (
-        <Image
-          key={src}
-          src={src}
-          alt=""
-          fill
-          priority={index === 0}
-          sizes="100vw"
-          className={`object-cover transition-opacity duration-1000 ${
-            index === currentIndex ? "opacity-100" : "opacity-0"
-          }`}
-        />
-      ))}
-      {/* Dark overlay for text contrast */}
-      <div className="absolute inset-0 bg-black/30" />
-    </div>
+    <>
+      {/* Mobile: single static image at its real aspect ratio — no crop, no rotation */}
+      {/* Plain <img>, not next/image: intentional, so no width/height guess is needed. */}
+      <img src={images[0]} alt="" className="block w-full sm:hidden" />
+
+      {/* sm and up: full-bleed rotating crossfade background — unchanged behavior */}
+      <div className="absolute inset-0 hidden overflow-hidden sm:block">
+        {images.map((src, index) => (
+          <Image
+            key={src}
+            src={src}
+            alt=""
+            fill
+            priority={index === 0}
+            sizes="100vw"
+            style={{ objectPosition }}
+            className={`object-cover transition-opacity duration-1000 ${
+              index === currentIndex ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+        <div className="absolute inset-0 bg-black/30" />
+      </div>
+    </>
   );
 }

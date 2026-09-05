@@ -14,7 +14,7 @@ export function NavLinks({ links }: NavLinksProps) {
 
   return (
     <nav aria-label="Main navigation" className="hidden md:block">
-      <ul className="flex items-center gap-8">
+      <ul className="flex items-center gap-14">
         {links.map((link) => {
           const isActive = pathname === link.href;
           return (
@@ -24,8 +24,8 @@ export function NavLinks({ links }: NavLinksProps) {
                 aria-current={isActive ? "page" : undefined}
                 className={
                   isActive
-                    ? "text-sm font-medium text-brand-gold underline decoration-2 underline-offset-4"
-                    : "text-sm font-medium text-brand-green transition-colors hover:text-brand-gold"
+                    ? "text-lg font-medium text-brand-gold underline decoration-2 underline-offset-4"
+                    : "text-lg font-medium text-brand-green transition-colors hover:text-brand-gold"
                 }
               >
                 {content.nav[link.id]}

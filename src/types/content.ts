@@ -11,10 +11,8 @@ export interface NavContent {
 }
 
 export interface HeroContent {
-  title: string;
-  subtitle: string;
+  tagline: string;
   primaryCta: string;
-  secondaryCta: string;
 }
 
 export interface AboutFeatureContent {

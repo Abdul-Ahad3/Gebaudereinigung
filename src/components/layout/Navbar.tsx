@@ -1,39 +1,37 @@
 import Link from "next/link";
-import {Container} from "@/components/layout/Container";
+import { Container } from "@/components/layout/Container";
 import { MobileMenu } from "./MobileMenu";
 import { NavLinks } from "./NavLinks";
 import { navLinks } from "@/data/navigation";
-import { WhatsAppIcon } from "@/components/shared/WhatsApp"
-import { whatsappLink } from "@/lib/whatsapp";
-import { content } from "@/data/content";
+import Image from "next/image";
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-brand-green/10 bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-brand-green/10 bg-[#f4f2f3] backdrop-blur">
       <Container>
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-20 items-center justify-between md:grid md:grid-cols-3">
           <Link
             href="/"
             aria-label="AS Gebäudereinigung — Home"
-            className="text-xl font-bold tracking-tight text-brand-green"
+            className="relative h-12 w-40 shrink-0 sm:h-14 sm:w-48 md:justify-self-start"
           >
-            AS <span className="text-brand-gold">Gebäudereinigung</span>
+            <Image
+              src="/images/logos/as-logo.png"
+              alt="AS Gebäudereinigung"
+              fill
+              priority
+              sizes="192px"
+              className="object-contain object-left"
+            />
           </Link>
 
-          <NavLinks links={navLinks} />
+          <div className="md:flex md:justify-self-center">
+            <NavLinks links={navLinks} />
+          </div>
 
-          
-          <a
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-md bg-brand-green px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-green-dark md:inline-flex"
-          >
-            <WhatsAppIcon className="h-4 w-4" />
-            {content.nav.whatsappShort}
-          </a>
-
-          <MobileMenu links={navLinks} />
+          <div className="flex items-center justify-end md:justify-self-end">
+            <MobileMenu links={navLinks} />
+          </div>
         </div>
       </Container>
     </header>

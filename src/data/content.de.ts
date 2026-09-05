@@ -6,7 +6,7 @@ export const contentDe: SiteContent = {
     services: "Dienstleistungen",
     industries: "Branchen",
     jobs: "Karriere",
-    faqs: "Häufige Fragen",
+    faqs: "FAQs",
     contact: "Kontakt",
     callToAction: "Rufen Sie uns an",
     whatsappShort: "WhatsApp",
@@ -14,11 +14,8 @@ export const contentDe: SiteContent = {
   },
 
   hero: {
-    title: "Zuverlässige Reinigung, auf die Sie vertrauen können",
-    subtitle:
-      "Von Büros über Treppenhäuser bis hin zu Endreinigungen – AS Gebäudereinigung bietet gründliche, professionelle Reinigung für Privathaushalte und Unternehmen in Freiburg – zuverlässig und fachgerecht, jedes Mal.",
+    tagline: "Zuverlässige Reinigung, auf die Sie vertrauen können – AS Gebäudereinigung Freiburg",
     primaryCta: "Kostenloses Angebot erhalten",
-    secondaryCta: "Unsere Dienstleistungen",
   },
 
   about: {

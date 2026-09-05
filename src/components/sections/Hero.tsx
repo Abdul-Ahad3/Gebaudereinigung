@@ -1,3 +1,4 @@
+// src/components/sections/Hero.tsx
 import Link from "next/link";
 import { HeroBackground } from "./HeroBackground";
 import { heroImages } from "@/data/heroImages";
@@ -7,36 +8,29 @@ export function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative isolate min-h-[600px] py-16 lg:min-h-[900px] lg:py-24"
+      className="relative isolate sm:min-h-[85vh] sm:max-h-[900px] sm:py-16 lg:py-24"
     >
-      <HeroBackground images={heroImages} />
+      {/* No fixed height, no aspect ratio, no background fill needed — the
+          mobile image simply determines its own height; the desktop
+          rotation fills this box once it becomes absolute at sm+. */}
+      <div className="w-full sm:absolute sm:inset-0">
+        <HeroBackground images={heroImages} objectPosition="center 70%" />
+      </div>
 
-      <div className="absolute inset-x-4 bottom-2 rounded-lg bg-white/60 p-6 backdrop-blur-sm sm:inset-x-auto sm:bottom-5 sm:right-8 sm:max-w-xl sm:p-8 lg:bottom-10 lg:right-16 lg:p-10">
+      <div className="bg-white p-6 sm:absolute sm:bottom-8 sm:right-8 sm:max-w-md sm:rounded-lg sm:bg-white/60 sm:p-6 sm:backdrop-blur-sm lg:bottom-12 lg:right-16">
         <h1
           id="hero-heading"
-          className="text-4xl font-bold leading-tight tracking-tight text-brand-green sm:text-5xl lg:text-5xl"
+          className="text-xl font-semibold leading-snug text-brand-green sm:text-2xl lg:text-3xl"
         >
-          {content.hero.title}
+          {content.hero.tagline}
         </h1>
 
-        <p className="mt-6 text-lg leading-relaxed text-brand-green/80">
-          {content.hero.subtitle}
-        </p>
-
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-md bg-brand-green px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-green-dark"
-          >
-            {content.hero.primaryCta}
-          </Link>
-          <Link
-            href="/services"
-            className="inline-flex items-center justify-center rounded-md border border-brand-green px-6 py-3 text-sm font-medium text-brand-green transition-colors hover:bg-brand-green hover:text-white"
-          >
-            {content.hero.secondaryCta}
-          </Link>
-        </div>
+        <Link
+          href="/contact"
+          className="mt-5 inline-flex items-center justify-center rounded-md bg-brand-green px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-green-dark"
+        >
+          {content.hero.primaryCta}
+        </Link>
       </div>
     </section>
   );
